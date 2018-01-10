@@ -2,7 +2,7 @@
 
 class triInsertion extends tri
 {
-  public triTableau()
+  public function triTableau()
   {
     if (isset($this->tabNb[0]))
     {
