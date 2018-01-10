@@ -27,7 +27,7 @@ class TriSelection extends Tri
 				$arrayTab[$min] = $tmp;
 			}
 		}
-		
+		$this->tabTri = $arrayTab;	
 	}
 }
 ?>
