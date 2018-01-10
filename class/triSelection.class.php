@@ -1,29 +1,28 @@
 <?php
-class triSelection extends Tri
+class triSelection extends tri
 {
 	public function triTableau()
 	{
 		$lenght = count($this->tabNb);
-		$arrayTab = $this->tabNb;
 
-		for($i = 1; $i < $lenght - 1; $i++)
+		for($i = 0; $i < $lenght - 1; $i++)
 		{
 			$min = $i;
+			$tmp = $this->tabNb[$i];
 			for($j = $i + 1; $j < $lenght;$j++)
 			{
-				if ($arrayTab[$j] < $arrayTab[$min])
+				if ($this->tabNb[$j] < $this->tabNb[$min])
 				{
 					$min = $j;
+					$tmp = $this->tabNb[$i];
 				}
 			}
 			if ($min != $i)
 			{
-				$tmp = $arrayTab[$i];
-				$arrayTab[$i] = $arrayTab[$min];
-				$arrayTab[$min] = $tmp;
+				$this->tabNb[$i] = $this->tabNb[$min];
+				$this->tabNb[$min] = $tmp;
 			}
 		}
-		$this->tabTri = $arrayTab;	
 	}
 }
 ?>

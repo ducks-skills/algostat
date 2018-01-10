@@ -2,10 +2,10 @@
 
 class Tri
 {
-	private $timeExec;
-	private $tabNb;
-	private $tabTri;
-	private $name;
+	protected $timeExec;
+	protected $tabNb;
+	protected $tabTri = array();
+	protected $name;
 
 
 	public function __construct($chaine, $name){
