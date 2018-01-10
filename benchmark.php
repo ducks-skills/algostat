@@ -9,11 +9,11 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 	}
 	else if (preg_match("^TriSelection$", $_POST['tri']))
 	{
-		$tri = new triInsertion($_POST['values'], $_POST['tri']);
+		$tri = new triSelection($_POST['values'], $_POST['tri']);
 	}
 	else if (preg_match("^TriBulle$", $_POST['tri']))
 	{
-		$tri = new triInsertion($_POST['values'], $_POST['tri']);
+		$tri = new triBulle($_POST['values'], $_POST['tri']);
 	}
 	$tri->triTableau();
 	var_dump($tri);
