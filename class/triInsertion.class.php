@@ -2,7 +2,10 @@
 
 class triInsertion extends tri
 {
-
+  public triTableau()
+  {
+    
+  }
 }
 
 ?>

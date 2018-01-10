@@ -3,11 +3,11 @@
 class Tri
 {
 	private $timeExec;
-	private $chaineNb;
-	private $chaineTri;
+	private $tabNb;
+	private $tabTri;
 	private $name;
 
-	
+
 	public function __construct($chaine){
 		$this->chaineNb = $chaine;
 	}
@@ -21,7 +21,7 @@ class Tri
 	public setChaineNb($tab)   { $this->chaineNb($tab);}
 	public setChaineTri($tab)  { $this->chaineTri($tab);}
 	public setName($name)      { $this->name($name);}
-	
+
 	abstract public function triTableau();
 }
 ?>
