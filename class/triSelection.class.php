@@ -1,10 +1,6 @@
 <?php
-class TriSelection extends Tri
+class triSelection extends Tri
 {
-	public function __construct($tab){
-		parent::__construct($tab, 'Selection');
-	}
-
 	public function triTableau()
 	{
 		$lenght = count($this->tabNb);

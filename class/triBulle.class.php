@@ -1,6 +1,6 @@
 
 <?php
-class TriBulle extends Tri
+class triBulle extends Tri
 {
 	public function __construct($tab){
 		parent::__construct($tab, 'Bulle');
