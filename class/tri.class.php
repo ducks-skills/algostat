@@ -12,14 +12,14 @@ class Tri
 		$this->chaineNb = $chaine;
 	}
 
-	public getTimeExec()  	   { return $timeExec;}
-	public getChaineNb()       { return $chaineNb;}
-	public getChaineTri()      { return $chaineTri;}
-	public getName()           { return $name;}
+	public getTimeExec()  	   { return $this->timeExec;}
+	public getTabNb()       { return $this->tabNb;}
+	public getTabTri()      { return $this->tabTri;}
+	public getName()           { return $this->name;}
 
 	public setTimeExec($time)  { $this->timeExec($time);}
-	public setChaineNb($tab)   { $this->chaineNb($tab);}
-	public setChaineTri($tab)  { $this->chaineTri($tab);}
+	public setTabNb($tab)   { $this->tabNb($tab);}
+	public setTabTri($tab)  { $this->tabTri($tab);}
 	public setName($name)      { $this->name($name);}
 
 	abstract public function triTableau();
