@@ -23,7 +23,6 @@ class Tri
 	public function setTabTri($tab)  { $this->tabTri($tab);}
 	public function setName($name)      { $this->name($name);}
 
-	abstract public function triTableau();
 
 	public static function explodeChain($str)
 	{
