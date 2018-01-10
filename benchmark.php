@@ -1,4 +1,5 @@
 <?php
+require_once('autoload.php');
 if (isset($_POST['tri']) && isset($_POST['values']))
 {
 	$tri = NULL;
