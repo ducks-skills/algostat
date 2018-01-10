@@ -7,7 +7,10 @@ class Tri
 	private $chaineTri;
 	private $name;
 
-	public function __construct(){}
+	
+	public function __construct($chaine){
+		$this->chaineNb = $chaine;
+	}
 
 	public getTimeExec()  	   { return $timeExec;}
 	public getChaineNb()       { return $chaineNb;}
@@ -18,5 +21,7 @@ class Tri
 	public setChaineNb($tab)   { $this->chaineNb($tab);}
 	public setChaineTri($tab)  { $this->chaineTri($tab);}
 	public setName($name)      { $this->name($name);}
+	
+	abstract public function triTableau(Tri $tri);
 }
 ?>
