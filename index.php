@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="styles/materialize.min.css">
 	</head>
 	<body>
-		<nav>
+		<nav class="cyan">
 			<div class="nav-wrapper">
 				<a href="#" class="brand-logo">AlgoStat</a>
 				<ul id="nav" class="right hide-on-med-and-down">
@@ -14,10 +14,12 @@
 				</ul>
 			</div>
 		</nav>
-		<h3>Bienvenue sur le site du projet AlgoStat !</h3>
-		<p>
-			Pour faire des tests sur les différents algorithmes proposés, rendez vous sur <a href="benchmark.php">cette page.</a>
-		</p>
+		<div class="col s12 center">
+			<h3>Bienvenue sur le site du projet AlgoStat !</h3>
+			<p>
+				Pour faire des tests sur les différents algorithmes proposés, rendez vous sur <a href="benchmark.php">cette page.</a>
+			</p>
+		</div>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 	</body>
 </html>
