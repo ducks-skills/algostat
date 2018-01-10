@@ -3,7 +3,7 @@ class triSelection extends tri
 {
 	public function triTableau()
 	{
-		$timeD = microtime();
+		$timeD = microtime(true);
 		$array  = $this->tabNb;
 		$lenght = count($array);
 		for($i = 0; $i < $lenght - 1; $i++)
@@ -25,8 +25,8 @@ class triSelection extends tri
 			}
 		}
 		$this->tabTri = array_merge($array);
-		$timeF = microtime();
-		$duration = $timeF - $timeD;
+		$timeF = microtime(true);
+		$this->timeExec = $timeF - $timeD;
 	}
 }
 ?>

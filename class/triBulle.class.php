@@ -4,6 +4,7 @@ class triBulle extends tri
 {
 	public function triTableau()
 	{
+		$timeD = microtime();
 		$lenght = count($this->tabNb);
 		$arrayTab = $this->tabNb;
 		$tab_tri = false;
@@ -23,6 +24,8 @@ class triBulle extends tri
 			
 		}
 		$this->tabTri = array_merge($arrayTab);
+		$timeF = microtime();
+		$this->execTime = $timeF - $timeD;
 	}
 }
 ?>
