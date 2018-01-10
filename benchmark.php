@@ -1,4 +1,24 @@
-<?php  ?>
+<?php
+if (isset($_POST['tri']) && isset($_POST['values']))
+{
+	$tri = NULL;
+
+	if (preg_match("^TriInsertion$", $_POST['tri']))
+	{
+		$tri = new triInsertion($_POST['values'], $_POST['tri']);
+	}
+	else if (preg_match("^TriSelection$", $_POST['tri']))
+	{
+		$tri = new triInsertion($_POST['values'], $_POST['tri']);
+	}
+	else if (preg_match("^TriBulle$", $_POST['tri']))
+	{
+		$tri = new triInsertion($_POST['values'], $_POST['tri']);
+	}
+	$tri->triTableau();
+	var_dump($tri);
+}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
