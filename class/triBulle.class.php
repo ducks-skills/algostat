@@ -1,17 +1,13 @@
 
 <?php
-class triBulle extends Tri
+class triBulle extends tri
 {
-	public function __construct($tab){
-		parent::__construct($tab, 'Bulle');
-	}
-
 	public function triTableau()
 	{
 		$lenght = count($this->tabNb);
 		$arrayTab = $this->tabNb;
 		$tab_tri = false;
-		for ($i = $lenght - 1; $i > 1 && $tab_tri == false $tab_tri ; $i--)
+		for ($i = $lenght; $i > 1 && $tab_tri == false; $i--)
 		{
 			$tab_tri = true;
 			for ($j = 0; $j < $i - 1; $j++)
@@ -26,6 +22,7 @@ class triBulle extends Tri
 			}
 			
 		}
+		$this->tabTri = array_merge($arrayTab);
 	}
 }
 ?>
