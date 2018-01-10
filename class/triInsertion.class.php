@@ -10,7 +10,7 @@ class triInsertion extends tri
       $tmp = 0;
       $this->setTabTri($this->tabNb);
       $lenght = count($this->tabTri);
-      for ($i = 0, $i < $tabTri)
+      for ($i = 0; $i < $tabTri; $i++)
       {
         $tmp = $this->tabTri;
         $j = $i;
