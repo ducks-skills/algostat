@@ -17,7 +17,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		$tri = new triBulle($_POST['values'], $_POST['tri']);
 	}
 	$tri->triTableau();
-	var_dump($tri);
+	var_dump($tri->getTabTri());
 }
 ?>
 <!DOCTYPE html>
