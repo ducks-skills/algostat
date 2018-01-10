@@ -22,6 +22,6 @@ class Tri
 	public setChaineTri($tab)  { $this->chaineTri($tab);}
 	public setName($name)      { $this->name($name);}
 	
-	abstract public function triTableau(Tri $tri);
+	abstract public function triTableau();
 }
 ?>
