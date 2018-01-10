@@ -23,7 +23,7 @@
 			<form class="col s12" action="" method="POST">
 			<div class="row">
 					<div class="input-field col s6 offset-s3">
-						<select name="tri">
+						<select name="tri" required>
 							<option value="" disabled selected></option>
 							<option value="TriSelection">Tri par sélection</option>
 							<option value="TriInsertion">Tri par insertion</option>
@@ -34,7 +34,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s6 offset-s3">
-					<textarea name="values" class="materialize-textarea"></textarea>
+					<textarea name="values" class="materialize-textarea" required></textarea>
 					<label>Valeurs à trier</label>
 				</div>
 			</div>
