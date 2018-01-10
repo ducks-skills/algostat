@@ -8,8 +8,9 @@ class Tri
 	private $name;
 
 
-	public function __construct($chaine){
-		$this->chaineNb = $chaine;
+	public function __construct($chaine, $name){
+		$this->tabNb = Tri::explodeChain($chaine);
+		$this->name = $name;
 	}
 
 	public getTimeExec()  	   { return $this->timeExec;}
@@ -23,5 +24,12 @@ class Tri
 	public setName($name)      { $this->name($name);}
 
 	abstract public function triTableau();
+
+	public static function explodeChain($str)
+	{
+		$str = str_replace(" ", "", $str);
+		$str = str_replace(";", ",", $str);
+		return explode(",", $str);
+	}
 }
 ?>
