@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>AlgoStat</title>
-		<link rel="stylesheet" href="css/materialize.min.css">
+		<link rel="stylesheet" href="styles/materialize.min.css">
 	</head>
 	<body>
 		<nav>
