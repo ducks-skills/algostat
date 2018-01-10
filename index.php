@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>AlgoStat</title>
-		<link rel="stylesheet" href="/css/materialize.min.css">
+		<link rel="stylesheet" href="styles/materialize.min.css">
 	</head>
 	<body>
 		<nav>
@@ -18,6 +18,6 @@
 		<p>
 			Pour faire des tests sur les différents algorithmes proposés, rendez vous sur <a href="benchmark.php">cette page.</a>
 		</p>
-		<script type="text/javascript" src="/js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
 	</body>
 </html>
