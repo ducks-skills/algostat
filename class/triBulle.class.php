@@ -25,7 +25,7 @@ class triBulle extends tri
 		}
 		$this->tabTri = array_merge($arrayTab);
 		$timeF = microtime();
-		$this->execTime = $timeF - $timeD;
+		$this->timeExec = $timeF - $timeD;
 	}
 }
 ?>

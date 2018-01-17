@@ -20,7 +20,11 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		$tri = new triQuickSort($_POST['values'], $_POST['tri']);
 	}
 	$tri->triTableau();
+<<<<<<< HEAD
 	var_dump($tri);
+=======
+	$tri->saveTri();
+>>>>>>> 48794fb58989c8a4e5310487a8966e62f43ebd31
 }
 ?>
 <!DOCTYPE html>

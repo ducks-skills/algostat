@@ -4,6 +4,8 @@ class triInsertion extends tri
 {
   public function triTableau()
   {
+    $deb = microtime(true);
+    $this->itNb = 0;
     if (isset($this->tabNb[0]))
     {
       $i = 0;
@@ -18,11 +20,14 @@ class triInsertion extends tri
         {
           $tmpTab[$j] = $tmpTab[$j - 1];
           $j--;
+          $this->itNb++;
         }
         $tmpTab[$j] = $tmp;
+        $this->itNb++;
       }
+      $this->setTabTri($tmpTab);
     }
-    $this->setTabTri($tmpTab);
+    $this->timeExec = microtime(true) - $deb;
   }
 }
 
