@@ -1,5 +1,5 @@
 <?php
-
+require_once('DBconnection.php');
 class Tri
 {
 	protected $timeExec;
@@ -31,6 +31,7 @@ class Tri
 	{
 		$str = str_replace(" ", "", $str);
 		$str = str_replace(";", ",", $str);
+		$str = str_replace(",,", "", $str);
 		return explode(",", $str);
 	}
 
@@ -40,7 +41,29 @@ class Tri
 		{
 			return -1;
 		}
-		$sql = "INSERT INTO execution () VALUES";
+		$sql = "INSERT INTO execution (
+			base_chain,
+			sorted_chain,
+			execution_time,
+			sort_date,
+			type,
+			iterations
+		)
+		VALUES (:bsc, :stc, :ext, :std, :typ, :it)";
+		$sqlCo = DBconnection::getInstance();
+		$req = $sqlCo->pdo->prepare($sql);
+		$req->bindParam(":bsc", implode(", ", $this->tabNb));
+		$req->bindParam(":stc", implode(", ", $this->tabTri));
+		$req->bindParam(":ext", $this->timeExec);
+		$req->bindParam(":std", date("Y-m-d H:i:s"));
+		$req->bindParam(":typ", $this->name);
+		$req->bindParam(":it", $this->itNb);
+
+		if($req->execute())
+		{
+			header("Location: index.php");
+		}
+
 	}
 }
 ?>
