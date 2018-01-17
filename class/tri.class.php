@@ -3,6 +3,7 @@
 class Tri
 {
 	protected $timeExec;
+	protected $nboccur;
 	protected $tabNb;
 	protected $tabTri = array();
 	protected $name;
@@ -17,15 +18,16 @@ class Tri
 	public function getTimeExec()  	{ return $this->timeExec;	}
 	public function getTabNb()      { return $this->tabNb;		}
 	public function getTabTri()     { return $this->tabTri;		}
-	public function getName()       { return $this->name;			}
-	public function getItNb()				{ return $this->itNb;			}
+	public function getName()       { return $this->name;		}
+	public function getItNb()	{ return $this->itNb;		}
+	public function getOccur()      { return $this->nboccur;        }
 
 	public function setTimeExec($time)  { $this->timeExec = $time;	}
 	public function setTabNb($tab)   		{ $this->tabNb = $tab;			}
 	public function setTabTri($tab)  		{ $this->tabTri = $tab;			}
 	public function setName($name)      { $this->name = $name;			}
 	public function setItNb($nb)				{	$this->itNb = $nb;				}
-
+	public function setOccur($nb)   { $this->nboccu = $nb;}
 
 	public static function explodeChain($str)
 	{
