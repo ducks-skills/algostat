@@ -9,7 +9,7 @@ class TriSelection extends Tri
 	{
 		$lenght = count($this->tabNb);
 		$arrayTab = $this->tabNb;
-
+	        $timeDeb = microtime(true);
 		for($i = 1; $i < $lenght - 1; $i++)
 		{
 			$min = $i;
@@ -27,6 +27,8 @@ class TriSelection extends Tri
 				$arrayTab[$min] = $tmp;
 			}
 		}
+		$timeFin = microtime(true);
+		$this->timeExec = $timeFin-$timeDeb;
 		$this->tabTri = $arrayTab;	
 	}
 }
