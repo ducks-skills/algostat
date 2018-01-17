@@ -18,7 +18,6 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 	}
 	$tri->triTableau();
 	$tri->saveTri();
-	var_dump($tri);
 }
 ?>
 <!DOCTYPE html>

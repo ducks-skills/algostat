@@ -1,5 +1,5 @@
 <?php
-require_once('DBconnection.php');
+//require_once('DBconnection.php');
 class Tri
 {
 	protected $timeExec;
@@ -12,6 +12,7 @@ class Tri
 
 	public function __construct($chaine, $name){
 		$this->tabNb = Tri::explodeChain($chaine);
+		$this->deleteBadElement();
 		$this->name = $name;
 	}
 
@@ -52,20 +53,42 @@ class Tri
 			iterations
 		)
 		VALUES (:bsc, :stc, :ext, :std, :typ, :it)";
-		$sqlCo = DBconnection::getInstance();
+		$sqlCo = database::getInstance();
 		$req = $sqlCo->pdo->prepare($sql);
-		$req->bindParam(":bsc", implode(", ", $this->tabNb));
-		$req->bindParam(":stc", implode(", ", $this->tabTri));
-		$req->bindParam(":ext", $this->timeExec);
-		$req->bindParam(":std", date("Y-m-d H:i:s"));
-		$req->bindParam(":typ", $this->name);
-		$req->bindParam(":it", $this->itNb);
+		//var prepare
+		$strTabNb = implode(", ", $this->tabNb);
+		$strTabTri = implode(", ", $this->tabTri);
+		$time = date("Y-m-d H:i:s");
 
+		//affect to params
+		$req->bindParam(':bsc', $strTabNb);
+		$req->bindParam(':stc', $strTabTri);
+		$req->bindParam(':ext', $this->timeExec);
+		$req->bindParam(':std', $time);
+		$req->bindParam(':typ', $this->name);
+		$req->bindParam(':it', $this->itNb);
+		var_dump($req->execute());
 		if($req->execute())
 		{
 			header("Location: index.php");
 		}
 
+	}
+	//pour eviter les problemes de ,,
+	public function deleteBadElement()
+	{
+		$tmp = [];
+		$i = 0;
+		foreach($this->tabNb as $tab)
+		{
+
+			if ($tab != '')
+			{
+				$tmp[$i] = $tab;
+				$i++;
+			}
+		}
+		$this->tabNb = $tmp;
 	}
 }
 ?>

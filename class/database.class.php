@@ -1,16 +1,16 @@
 <?php
 
-class DBconnection {
+class database {
 	private $dbString = "mysql:host=188.226.199.194;dbname=sort";
 	private $login = "root";
-	private $password = "";
+	private $password = "root";
 
 	private static $instance = null;
 	public $pdo;
 
 	public static function getInstance() {
 		if (self::$instance == null) {
-			self::$instance = new DBconnection();
+			self::$instance = new database();
 		}
 		return (self::$instance);
 	}
