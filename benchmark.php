@@ -3,7 +3,6 @@ require_once('autoload.php');
 if (isset($_POST['tri']) && isset($_POST['values']))
 {
 	$tri = NULL;
-
 	if (preg_match("/^TriInsertion$/", $_POST['tri']))
 	{
 		$tri = new triInsertion($_POST['values'], $_POST['tri']);
@@ -16,7 +15,12 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 	{
 		$tri = new triBulle($_POST['values'], $_POST['tri']);
 	}
+	else if (preg_match("/^QuickSort$/", $_POST['tri']))
+	{
+		$tri = new triQuickSort($_POST['values'], $_POST['tri']);
+	}
 	$tri->triTableau();
+	var_dump($tri);
 }
 ?>
 <!DOCTYPE html>
@@ -48,6 +52,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 							<option value="TriSelection">Tri par sélection</option>
 							<option value="TriInsertion">Tri par insertion</option>
 							<option value="TriBulle">Tri à bulle</option>
+							<option value="QuickSort">Tri rapide</option>
 						</select>
 						<label>Choix de l'algorithme</label>
 					</div>
