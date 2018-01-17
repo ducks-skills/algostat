@@ -8,20 +8,21 @@ class triInsertion extends tri
     {
       $i = 0;
       $tmp = 0;
-      $this->setTabTri($this->tabNb);
-      $lenght = count($this->tabTri);
-      for ($i = 0; $i < $tabTri; $i++)
+      $tmpTab = $this->getTabNb();
+      $lenght = count($tmpTab);
+      for ($i = 0; $i < $lenght; $i++)
       {
-        $tmp = $this->tabTri;
+        $tmp = $tmpTab[$i];
         $j = $i;
-        while ($j > 0 && $this->tabTri[$j - 1] > $tmp)
+        while ($j > 0 && $tmpTab[$j - 1] > $tmp)
         {
-          $this->tabTri[$j] = $this->tabTri[$j - 1];
+          $tmpTab[$j] = $tmpTab[$j - 1];
           $j--;
         }
-        $this->tabTri[$j] = $tmp;
+        $tmpTab[$j] = $tmp;
       }
     }
+    $this->setTabTri($tmpTab);
   }
 }
 
