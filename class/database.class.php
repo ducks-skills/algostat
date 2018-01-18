@@ -1,6 +1,6 @@
 <?php
 
-class database {
+class Database {
 	private $dbString = "mysql:host=188.226.199.194;dbname=sort";
 	private $login = "root";
 	private $password = "root";
@@ -10,7 +10,7 @@ class database {
 
 	public static function getInstance() {
 		if (self::$instance == null) {
-			self::$instance = new database();
+			self::$instance = new Database();
 		}
 		return (self::$instance);
 	}

@@ -8,7 +8,7 @@
 	<body>
 		<nav class="cyan">
 			<div class="nav-wrapper">
-				<a href="#" class="brand-logo">AlgoStat</a>
+				<a href="#" class="brand-logo  center">AlgoStat</a>
 				<ul id="nav" class="right hide-on-med-and-down">
 					<li><a href="benchmark.php">Benchmarks</a></li>
 				</ul>
