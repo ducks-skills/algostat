@@ -6,6 +6,7 @@ class triInsertion extends tri
   {
     $deb = microtime(true);
     $this->itNb = 0;
+    $this->nbelem = count($this->tabNb);
     if (isset($this->tabNb[0]))
     {
       $i = 0;

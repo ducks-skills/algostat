@@ -1,9 +1,9 @@
 <?php
-//require_once('DBconnection.php');
+require_once('database.class.php');
 class Tri
 {
 	protected $timeExec;
-	protected $nboccur;
+	protected $nbelem;
 	protected $tabNb;
 	protected $tabTri = array();
 	protected $name;
@@ -47,7 +47,7 @@ class Tri
 		{
 			return -1;
 		}
-		$sql = "INSERT INTO execution (base_chain, sorted_chain, execution_time, date, type, iterations) VALUES (:base_chain, :sorted_chain, :execution_time, :date, :type, :iterations)";
+		$sql = "INSERT INTO execution (base_chain, sorted_chain, execution_time, date, type, iterations, size) VALUES (:base_chain, :sorted_chain, :execution_time, :date, :type, :iterations, :size)";
 		//var prepare
 		$strTabNb = implode(", ", $this->tabNb);
 		$strTabTri = implode(", ", $this->tabTri);
@@ -63,10 +63,10 @@ class Tri
 		$req->bindParam(":date", $time);
 		$req->bindParam(":type", $this->name);
 		$req->bindParam(":iterations", $this->itNb);
-		//var_dump($sqlCo->pdo);
+		$req->bindParam(":size", $this->nbelem);
 		if ($req->execute())
 		{
-			header("Location: index.php");
+			#header("Location: index.php");
 		}
 		else
 		{
@@ -89,6 +89,15 @@ class Tri
 			}
 		}
 		$this->tabNb = $tmp;
+	}
+
+	public function getTableJsonData($type)
+	{
+	$sql = "select type, size, execution_time from execution where type like ?";
+	$sqlCo = Database::getInstance();
+	$req = $sqlCo->pdo->prepare($sql);
+	$req->execute($type);
+	$rslt = $req->fetch(PDO::FETCH_ASSOC);	
 	}
 }
 ?>

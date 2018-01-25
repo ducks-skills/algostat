@@ -4,6 +4,8 @@ class triQuickSort extends tri
 
 	public function triTableau()
 	{
+          	$this->itNb = 0;
+		$this->nbelem = count($this->tabNb);
 		$timeD = microtime(true);
 		$arrayTab = $this->tabNb;
 		$this->tabTri = array_merge($this->quickSort($arrayTab));
@@ -30,6 +32,7 @@ class triQuickSort extends tri
 			else{
 				$right[] = $array[$i];
 			}
+          		$this->itNb++;
 		}
 		return array_merge($this->quickSort($left), array($pivot), $this->quickSort($right));
 	}

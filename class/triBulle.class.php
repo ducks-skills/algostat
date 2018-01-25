@@ -4,11 +4,12 @@ class triBulle extends tri
 {
 	public function triTableau()
 	{
-		$timeD = microtime();
-		$lenght = count($this->tabNb);
+		$timeD = microtime(true);
+		$this->nbelem = count($this->tabNb);
 		$arrayTab = $this->tabNb;
+          	$this->itNb = 0;
 		$tab_tri = false;
-		for ($i = $lenght; $i > 1 && $tab_tri == false; $i--)
+		for ($i = $this->nbelem; $i > 1 && $tab_tri == false; $i--)
 		{
 			$tab_tri = true;
 			for ($j = 0; $j < $i - 1; $j++)
@@ -20,11 +21,12 @@ class triBulle extends tri
 					$arrayTab[$j] = $tmp;
 					$tab_tri = false;
 				}
+          			$this->itNb++;
 			}
-			
+          		$this->itNb++;
 		}
 		$this->tabTri = array_merge($arrayTab);
-		$timeF = microtime();
+		$timeF = microtime(true);
 		$this->timeExec = $timeF - $timeD;
 	}
 }
