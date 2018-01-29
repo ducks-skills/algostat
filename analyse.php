@@ -1,37 +1,8 @@
 <?php
 require_once('autoload.php');
-if (isset($_POST['tri']) && isset($_POST['values']))
+if (isset($_POST['tri']))
 {
-	$tri = NULL;
-	if (!preg_match("/^[-]*[0-9,.;]+$/", $_POST['values']))
-	{
-		$tri = new tri($_POST['values'], $_POST['tri']);
-		$tri->setError("Mauvais format du jeu de données");
-	}
-	else
-	{
-		if (preg_match("/^TriInsertion$/", $_POST['tri']))
-			{
-			$tri = new triInsertion($_POST['values'], $_POST['tri']);
-			}
-			else if (preg_match("/^TriSelection$/", $_POST['tri']))
-			{
-			$tri = new triSelection($_POST['values'], $_POST['tri']);
-			}
-			else if (preg_match("/^TriBulle$/", $_POST['tri']))
-			{
-			$tri = new triBulle($_POST['values'], $_POST['tri']);
-			}
-			else if (preg_match("/^QuickSort$/", $_POST['tri']))
-			{
-			$tri = new triQuickSort($_POST['values'], $_POST['tri']);
-			}
-	}
-	if (!$tri->getError())
-	{
-		$tri->triTableau();
-		$tri->saveTri();
-	}
+	$res = tri::getTableJsonData($_POST['tri']);
 }
 ?>
 <!DOCTYPE html>
@@ -41,6 +12,9 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		<title>AlgoStat</title>
 		<link rel="stylesheet" href="styles/materialize.min.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="js/Highcharts/code/highcharts.js"></script>
+		<script src="js/Highcharts/code/modules/exporting.js"></script>
+
 	</head>
 	<body>
 		<nav class="cyan">
@@ -86,12 +60,6 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 					</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s6 offset-s3">
-					<textarea name="values" class="materialize-textarea" required><?php if (isset($tri) && $tri->getError()) { echo $tri->getTabNb(); } ?></textarea>
-					<label>Valeurs à trier</label>
-				</div>
-			</div>
-			<div class="row">
 				<button type="submit" name="send" class="btn waves-effect waves-light">
 					Lancer
 					<i class="material-icons right">send</i>
@@ -103,6 +71,56 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function() { $('select').material_select(); });
+		var tab = <?php echo json_encode($res, JSON_PRETTY_PRINT)?>;
+		var type = tab[0][type];
+		var data = [];
+		var size = [];
+		for (var arrayS in tab) 
+		{
+			data.push(parseFloat(tab[arrayS]["execution_time"]));
+			if (tab[arrayS]["size"] == null){
+			tab[arrayS]["size"] = 0;	
+			}
+			size.push(parseFloat(tab[arrayS]["size"]));
+		}
+		var container = document.createElement('div');
+		container.className = "col s10 center";
+		document.body.appendChild(container);
+		window.chart = new Highcharts.Chart({
+    		chart: {
+        		renderTo: container
+    		},
+		title: {
+			text: type
+		},
+
+    		xAxis: {
+			title: {
+				text: 'Nombre d\'entrée'
+			},
+			categories: size
+    		},
+    		yAxis: {
+			type: 'logarithmic',
+			title: {
+				text: 'Temps D\'excution'
+			},
+			data: data
+    		},
+    		series: [{
+        		data: data,
+			color: '#4dff4d',
+			pointStart: 0
+    		}],
+		plotOptions: {
+			line: {
+				dataLabels: {
+					enabled: true
+				}
+			}
+		}
+});
+
 		</script>
 	</body>
 </html>

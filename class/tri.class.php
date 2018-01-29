@@ -91,13 +91,18 @@ class Tri
 		$this->tabNb = $tmp;
 	}
 
-	public function getTableJsonData($type)
+	public static function getTableJsonData($type)
 	{
-	$sql = "select type, size, execution_time from execution where type like ?";
+	$arra = array();
+	$sql = "select execution_time, date, type, iterations, size from execution where type like '$type'";
 	$sqlCo = Database::getInstance();
 	$req = $sqlCo->pdo->prepare($sql);
-	$req->execute($type);
-	$rslt = $req->fetch(PDO::FETCH_ASSOC);	
+	$req->execute();
+	while ($rslt = $req->fetch(PDO::FETCH_ASSOC))
+	{
+	array_push($arra, $rslt);
+	}
+	return $arra;
 	}
 }
 ?>
