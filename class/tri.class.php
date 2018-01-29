@@ -24,6 +24,7 @@ class Tri
 	public function getItNb()				{ return $this->itNb;						}
 	public function getOccur()      { return $this->nboccur;        }
 	public function getError()			{ return $this->error; 					}
+	public function getNbelem()			{ return $this->nbelem; 					}
 
 	public function setTimeExec($time)  { $this->timeExec = $time;	}
 	public function setTabNb($tab)   		{ $this->tabNb = $tab;			}

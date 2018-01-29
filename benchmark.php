@@ -32,6 +32,12 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		$tri->triTableau();
 		$tri->saveTri();
 	}
+	$res = array();
+	array_push($res, $tri->getTabTri());
+	array_push($res, $tri->getTimeExec());
+	array_push($res, $tri->getTabNb());
+	array_push($res, $tri->getNbelem());
+
 }
 ?>
 <!DOCTYPE html>
@@ -47,7 +53,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 			<div class="nav-wrapper">
 				<a href="index.php" class="brand-logo center">AlgoStat</a>
 				<ul id="nav" class="right hide-on-med-and-down">
-					<li><a href="benchmark.php">Benchmarks</a></li>
+					<li><a href="analyse.php">Analyse</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -103,6 +109,16 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function() { $('select').material_select(); });
+		var tab = <?php echo json_encode($res, JSON_PRETTY_PRINT) ?>;
+		var container = document.createElement('div');
+		container.className = "col s10 center";
+		container.id = "div1";
+		document.body.appendChild(container);
+		var text = '<p>Temps d\'éxecution  : '   +tab[1]+' 	 us</p>';
+		text += '<p>Nombre d\'élement   : '  +tab[3]+          '</p>';
+		text += '<p>Element avant le tri  : '+tab[2]+         '</p>';
+		text += '<p>Element apres le tri  : '+tab[0]+	  '</p>';
+		container.innerHTML += text;
 		</script>
 	</body>
 </html>
