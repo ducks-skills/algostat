@@ -24,6 +24,7 @@ class Tri
 	public function getItNb()				{ return $this->itNb;						}
 	public function getOccur()      { return $this->nboccur;        }
 	public function getError()			{ return $this->error; 					}
+	public function getNbelem()			{ return $this->nbelem; 					}
 
 	public function setTimeExec($time)  { $this->timeExec = $time;	}
 	public function setTabNb($tab)   		{ $this->tabNb = $tab;			}
@@ -91,13 +92,18 @@ class Tri
 		$this->tabNb = $tmp;
 	}
 
-	public function getTableJsonData($type)
+	public static function getTableJsonData($type)
 	{
-	$sql = "select type, size, execution_time from execution where type like ?";
+	$arra = array();
+	$sql = "SELECT AVG(execution_time) as execution_time, date, type as title_chart, iterations, size FROM execution WHERE type LIKE '$type' GROUP BY size";
 	$sqlCo = Database::getInstance();
 	$req = $sqlCo->pdo->prepare($sql);
-	$req->execute($type);
-	$rslt = $req->fetch(PDO::FETCH_ASSOC);	
+	$req->execute();
+	while ($rslt = $req->fetch(PDO::FETCH_ASSOC))
+	{
+	array_push($arra, $rslt);
+	}
+	return $arra;
 	}
 }
 ?>
