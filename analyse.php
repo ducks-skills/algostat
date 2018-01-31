@@ -113,11 +113,12 @@ if (isset($_POST['tri']))
     		yAxis: {
 			type: 'logarithmic',
 			title: {
-				text: 'Temps D\'excution'
+				text: 'Temps D\'excution en us'
 			},
 			data: data
     		},
     		series: [{
+						name: 'Evolution du temps en fonction du nombre de valeurs à trier',
         		data: data,
 			color: '#2ecc71',
 			pointStart: 0
