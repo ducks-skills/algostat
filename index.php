@@ -9,12 +9,14 @@
 </head>
 <body>
   <?php require_once("menu.php"); ?>
-<div class="col s12 center">
+<div class="col s1"></div>
+<div class="col s10 center">
 <h3>Bienvenue sur le site du projet AlgoStat !</h3>
 <p>
 Pour faire des tests sur les différents algorithmes proposés, rendez vous sur <a href="benchmark.php">cette page.</a>
 </p>
 </div>
+<div class="col s1"></div>
 <script>
 
 var container = document.createElement('div');
