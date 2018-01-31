@@ -4,7 +4,6 @@ if (isset($_POST['tri']))
 {
 	$res = tri::getTableJsonData($_POST['tri']);
 	$title = (string)$res[0]['title_chart'];
-	var_dump($title);
 }
 ?>
 <!DOCTYPE html>
@@ -19,7 +18,16 @@ if (isset($_POST['tri']))
 
 	</head>
 	<body>
-		<?php require_once("menu.php"); ?>
+		<nav class="cyan">
+		  <div class="nav-wrapper">
+		    <a href="index.php" class="brand-logo center">AlgoStat</a>
+		    <ul id="nav" class="right hide-on-med-and-down">
+		      <li><a href="benchmark.php">Benchmarks</a></li>
+		      <li><a href="analyse.php">Analyse</a></li>
+		    </ul>
+		  </div>
+		</nav>
+
 		<div class="col s12 center">
 			<div class="row">
 				<h3 class="center">Choisir un algorithme</h3>
@@ -62,13 +70,19 @@ if (isset($_POST['tri']))
 			</form>
 		</div>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function() { $('select').material_select(); });
+		$(document).ready(function() {
+			$('select').material_select();
+		});
 		</script>
 		<script type="text/javascript">
 		var tab = <?php echo json_encode($res, JSON_PRETTY_PRINT);?>;
-		var title_chart = <?php echo $title; ?>;
+		var title_chart = '<?php echo $title; ?>';
+		if (title_chart == '')
+		{
+			title_chart = NULL;
+		}
 		var data = [];
 		var size = [];
 		for (var arrayS in tab)
