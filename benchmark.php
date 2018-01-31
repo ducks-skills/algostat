@@ -43,14 +43,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<body>
-		<nav class="cyan">
-			<div class="nav-wrapper">
-				<a href="index.php" class="brand-logo center">AlgoStat</a>
-				<ul id="nav" class="right hide-on-med-and-down">
-					<li><a href="benchmark.php">Benchmarks</a></li>
-				</ul>
-			</div>
-		</nav>
+		<?php require_once("menu.php"); ?>
 		<div class="col s12 center">
 			<div class="row">
 				<h3 class="center">Executer un algorithme</h3>

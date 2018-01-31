@@ -8,14 +8,7 @@
 <script src="js/Highcharts/code/modules/exporting.js"></script>
 </head>
 <body>
-<nav class="cyan">
-<div class="nav-wrapper">
-<a href="#" class="brand-logo  center">AlgoStat</a>
-<ul id="nav" class="right hide-on-med-and-down">
-<li><a href="benchmark.php">Benchmarks</a></li>
-</ul>
-</div>
-</nav>
+  <?php require_once("menu.php"); ?>
 <div class="col s12 center">
 <h3>Bienvenue sur le site du projet AlgoStat !</h3>
 <p>
