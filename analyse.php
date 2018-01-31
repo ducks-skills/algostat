@@ -52,7 +52,7 @@ if (isset($_POST['tri']))
 			<form class="col s12" action="" method="POST">
 			<div class="row">
 					<div class="input-field col s6 offset-s3">
-						<select name="tri" class="browser-default" required>
+						<select name="tri" required>
 							<option value="TriSelection">Tri par sélection</option>
 							<option value="TriInsertion">Tri par insertion</option>
 							<option value="TriBulle">Tri à bulle</option>
@@ -81,7 +81,7 @@ if (isset($_POST['tri']))
 		var title_chart = '<?php echo $title; ?>';
 		if (title_chart == '')
 		{
-			title_chart = null;
+			title_chart = 'Choisir le type de tri pour afficher un graph';
 		}
 		var data = [];
 		var size = [];
