@@ -81,7 +81,7 @@ if (isset($_POST['tri']))
 		var title_chart = '<?php echo $title; ?>';
 		if (title_chart == '')
 		{
-			title_chart = NULL;
+			title_chart = null;
 		}
 		var data = [];
 		var size = [];
