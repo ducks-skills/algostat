@@ -108,8 +108,8 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		container.className = "col s10 center";
 		container.id = "div1";
 		document.body.appendChild(container);
-		var text = '<h4>Type : '   +tab[4]+'</h4>';
-		text = '<p>Temps d\'éxecution  : '   +tab[1]+' 	 us</p>';
+		var text = '<h4>Type : ' + tab[4] +'</h4>';
+		text += '<p>Temps d\'éxecution  : '   +tab[1]+' 	 us</p>';
 		text += '<p>Nombre d\'élement   : '  +tab[3]+          '</p>';
 		text += '<p>Element avant le tri  : '+tab[2]+         '</p>';
 		text += '<p>Element apres le tri  : '+tab[0]+	  '</p>';
