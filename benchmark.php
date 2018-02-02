@@ -8,7 +8,6 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		$_POST['values'] = ",45,45,45,5,48,48,48,456,4,,4,615,46,414,,5,64,461616,415,,16,46,,45,46445,15,31,3,54,54,64,4,61,,564,3,1,46,,641,64,,4,4,6";
 	}
 	$_POST['values'] = str_replace(" ", "", $_POST['values']);
-	var_dump($_POST['values']);
 	if (!preg_match("/^[-]*[0-9,.;]+$/", $_POST['values']))
 	{
 		$tri = new tri($_POST['values'], $_POST['tri']);
@@ -44,6 +43,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 	array_push($res, $tri->getTabNb());
 	array_push($res, $tri->getNbelem());
 	array_push($res, $tri->getName());
+	array_push($res, $tri->getItNb());
 
 }
 ?>
@@ -78,6 +78,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
         	</div>\n
 				<div class='col s2 m2'></div>\n
       </div>\n"; }?>
+			<p class = "lime-text"> Chaîne défaut : ,45,45,45,5,48,48,48,456,4,,4,615,46,414,,5,64,461616,415,,16,46,,45,46445,15,31,3,54,54,64,4,61,,564,3,1,46,,641,64,,4,4,6 </p>
 			<form class="col s12" action="" method="POST">
 			<div class="row">
 					<div class="input-field col s6 offset-s3">
@@ -119,6 +120,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		text += '<p>Nombre d\'élement   : '  +tab[3]+          '</p>';
 		text += '<p>Element avant le tri  : '+tab[2]+         '</p>';
 		text += '<p>Element apres le tri  : '+tab[0]+	  '</p>';
+		text += '<p>Nombre d\'itérations 	: '+ tab[5] + '</p>';
 		container.innerHTML += text;
  		$('#triVal').trigger('autoresize');
 		</script>
