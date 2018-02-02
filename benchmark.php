@@ -3,7 +3,7 @@ require_once('autoload.php');
 if (isset($_POST['tri']) && isset($_POST['values']))
 {
 	$tri = NULL;
-	if (!preg_match("/^[-]*[0-9,.;]+$/", $_POST['values']))
+	if (!preg_match("/^[-]*[0-9,.; ]+$/", $_POST['values']))
 	{
 		$tri = new tri($_POST['values'], $_POST['tri']);
 		$tri->setError("Mauvais format du jeu de données");
@@ -95,7 +95,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 							}
 							else
 							{
-								echo "45,99,9899,6656,565,979,98986,64,354,66646,64654,54644546,54646452131,211234,7798456,467883";
+								"45,99,9899,6656,565,979,98986,64,354,66646,64654,54644546,54646452131,211234,7798456,467883";
 							}
 							?>
 						</textarea>
