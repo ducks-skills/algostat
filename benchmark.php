@@ -3,6 +3,7 @@ require_once('autoload.php');
 if (isset($_POST['tri']) && isset($_POST['values']))
 {
 	$tri = NULL;
+	var_dump($_POST);
 	if (!preg_match("/^[-]*[0-9,.; ]+$/", $_POST['values']))
 	{
 		$tri = new tri($_POST['values'], $_POST['tri']);
@@ -87,15 +88,11 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 			</div>
 			<div class="row">
 				<div class="input-field col s6 offset-s3">
-					<textarea name="values" class="materialize-textarea" required>
+					<textarea id="triVal" name="values" class="materialize-textarea light-blue-text">
 						<?php
 							if (isset($tri) && $tri->getError())
 							{
 								echo substr(implode(", ", $tri->getTabNb()), 0, -2);
-							}
-							else
-							{
-								echo "45,99,9899,6656,565,979,98986,64,354,66646,64654,54644546,54646452131,211234,7798456,467883";
 							}
 							?>
 						</textarea>
@@ -125,6 +122,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		text += '<p>Element avant le tri  : '+tab[2]+         '</p>';
 		text += '<p>Element apres le tri  : '+tab[0]+	  '</p>';
 		container.innerHTML += text;
+ 		$('#triVal').trigger('autoresize');
 		</script>
 	</body>
 </html>
