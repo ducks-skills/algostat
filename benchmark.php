@@ -87,7 +87,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 			</div>
 			<div class="row">
 				<div class="input-field col s6 offset-s3">
-					<textarea name="values" class="materialize-textarea" required><?php if (isset($tri) && $tri->getError()) { echo $tri->getTabNb(); } ?></textarea>
+					<textarea name="values" class="materialize-textarea" required><?php if (isset($tri) && $tri->getError()) { echo substr(implode(", ", $tri->getTabNb()), 0, -2); } ?></textarea>
 					<label>Valeurs à trier</label>
 				</div>
 			</div>
