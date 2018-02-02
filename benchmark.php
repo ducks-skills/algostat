@@ -78,7 +78,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
         	</div>\n
 				<div class='col s2 m2'></div>\n
       </div>\n"; }?>
-			<p class = "lime-text"> Chaîne défaut : ,45,45,45,5,48,48,48,456,4,,4,615,46,414,,5,64,461616,415,,16,46,,45,46445,15,31,3,54,54,64,4,61,,564,3,1,46,,641,64,,4,4,6 </p>
+			<p class = "orange-text"> Chaîne par défaut : ,45,45,45,5,48,48,48,456,4,,4,615,46,414,,5,64,461616,415,,16,46,,45,46445,15,31,3,54,54,64,4,61,,564,3,1,46,,641,64,,4,4,6 </p>
 			<form class="col s12" action="" method="POST">
 			<div class="row">
 					<div class="input-field col s6 offset-s3">

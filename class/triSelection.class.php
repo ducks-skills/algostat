@@ -11,21 +11,21 @@ class triSelection extends tri
 		{
 			$min = $i;
 			$tmp = $array[$i];
-			for($j = $i + 1; $j < $this->nbelem;$j++)
+			for($j = $i + 1; $j < $this->nbelem; $j++)
 			{
 				if ($array[$j] < $array[$min])
 				{
 					$min = $j;
 					$tmp = $array[$i];
 				}
-          		   	$this->itNb++;
+				$this->itNb++;
 			}
 			if ($min != $i)
 			{
 				$array[$i] = $array[$min];
 				$array[$min] = $tmp;
 			}
-          		$this->itNb++;
+			$this->itNb++;
 		}
 		$this->tabTri = array_merge($array);
 		$timeF = microtime(true);
