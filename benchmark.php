@@ -5,10 +5,10 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 	$tri = NULL;
 	if ($_POST['values'] == "")
 	{
-		$_POST['values'] = ",45,45,45,5,48,48,48,456,4,,4,615,46,414,,5,64,461616,415,,16,46,,45,46445,15,31,3,54,54,64,4,61,,564,3,1,46,,641,64,,4,4,6"
+		$_POST['values'] = ",45,45,45,5,48,48,48,456,4,,4,615,46,414,,5,64,461616,415,,16,46,,45,46445,15,31,3,54,54,64,4,61,,564,3,1,46,,641,64,,4,4,6";
 	}
 	$_POST['values'] = str_replace(" ", "", $_POST['values']);
-	var_dump($_POST['values'])
+	var_dump($_POST['values']);
 	if (!preg_match("/^[-]*[0-9,.;]+$/", $_POST['values']))
 	{
 		$tri = new tri($_POST['values'], $_POST['tri']);
@@ -93,14 +93,7 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 			</div>
 			<div class="row">
 				<div class="input-field col s6 offset-s3">
-					<textarea id="triVal" name="values" class="materialize-textarea light-blue-text">
-						<?php
-							if (isset($tri) && $tri->getError())
-							{
-								echo str_replace(" ", "", substr(implode(",", $tri->getTabNb()), 0, -2));
-							}
-							?>
-						</textarea>
+					<textarea id="triVal" name="values" class="materialize-textarea light-blue-text"><?php if (isset($tri) && $tri->getError()){ echo str_replace(" ", "", substr(implode(",", $tri->getTabNb()), 0, -2)); } ?></textarea>
 					<label>Valeurs à trier</label>
 				</div>
 			</div>
