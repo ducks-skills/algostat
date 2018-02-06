@@ -56,7 +56,10 @@ if (isset($_POST['tri']))
 							<option value="TriSelection">Tri par sélection</option>
 							<option value="TriInsertion">Tri par insertion</option>
 							<option value="TriBulle">Tri à bulle</option>
-							<option value="QuickSort">Tri rapide</option>
+							<option value="QuickSort">Tri Rapide</option>
+							<option value="TriPeigne">Tri Peigne</option>
+							<option value="TriFusion">Tri Fusion</option>
+							<option value="TriShell">Tri Shell</option>
 						</select>
 						<label>Choix de l'algorithme</label>
 					</div>

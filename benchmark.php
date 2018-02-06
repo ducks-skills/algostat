@@ -31,6 +31,20 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 			{
 			$tri = new triQuickSort($_POST['values'], $_POST['tri']);
 			}
+			else if (preg_match("/^TriShell$/", $_POST['tri']))
+			{
+			$tri = new triShell($_POST['values'], $_POST['tri']);
+			}
+			else if (preg_match("/^TriFusion$/", $_POST['tri']))
+			{
+			$tri = new triFusion($_POST['values'], $_POST['tri']);
+			}
+			else if (preg_match("/^TriPeigne$/", $_POST['tri']))
+			{
+			$tri = new triPeigne($_POST['values'], $_POST['tri']);
+			}
+
+
 	}
 	if (!$tri->getError())
 	{
@@ -88,6 +102,9 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 							<option value="TriInsertion">Tri par insertion</option>
 							<option value="TriBulle">Tri à bulle</option>
 							<option value="QuickSort">Tri rapide</option>
+							<option value="TriShell">Tri shell</option>
+							<option value="TriFusion">Tri fusion</option>
+							<option value="TriPeigne">Tri à peigne</option>
 						</select>
 						<label>Choix de l'algorithme</label>
 					</div>
