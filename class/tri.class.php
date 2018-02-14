@@ -48,7 +48,10 @@ class Tri
 		{
 			return -1;
 		}
-		$sql = "INSERT INTO execution (base_chain, sorted_chain, execution_time, date, type, iterations, size) VALUES (:base_chain, :sorted_chain, :execution_time, :date, :type, :iterations, :size)";
+		$sql = "INSERT INTO execution
+		(base_chain, sorted_chain, execution_time, date, type, iterations, size)
+		VALUES
+		(:base_chain, :sorted_chain, :execution_time, :date, :type, :iterations, :size)";
 		//var prepare
 		$strTabNb = implode(", ", $this->tabNb);
 		$strTabTri = implode(", ", $this->tabTri);

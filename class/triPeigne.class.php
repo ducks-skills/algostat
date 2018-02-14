@@ -12,7 +12,7 @@ class triPeigne extends tri
 		$timeF = microtime(true);
 		$this->timeExec = $timeF -$timeD;
 	}
-	
+
 	public function Peignesort($array, $size)
 	{
 		$interval = $size;
@@ -28,7 +28,7 @@ class triPeigne extends tri
 			$echange = false;
 			while ($i <= $size - $interval)
 			{
-				if ($array[$i] > $array[$i + $interval])
+				if (isset($array[$i + $interval]) && $array[$i] > $array[$i + $interval])
 				{
 					$tmp = $array[$i];
 					$array[$i] = $array[$i + $interval];

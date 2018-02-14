@@ -1,9 +1,9 @@
 <?php
 
 class Database {
-	private $dbString = "mysql:host=188.226.199.194;dbname=sort";
-	private $login = "root";
-	private $password = "root";
+	private $dbString = "mysql:host=188.226.199.194;dbname=algostat";
+	private $login = "algostat";
+	private $password = "sfGuCPW6ChF3wjtn";
 
 	private static $instance = null;
 	public $pdo;

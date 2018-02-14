@@ -127,19 +127,22 @@ if (isset($_POST['tri']) && isset($_POST['values']))
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function() { $('select').material_select(); });
-		var tab = <?php echo json_encode($res, JSON_PRETTY_PRINT); ?>;
-		var container = document.createElement('div');
-		container.className = "col s10 center";
-		container.id = "div1";
-		document.body.appendChild(container);
-		var text = '<h4>Type : ' + tab[4] +'</h4>';
-		text += '<p>Temps d\'éxecution  : '   +tab[1]+' 	 us</p>';
-		text += '<p>Nombre d\'élement   : '  +tab[3]+          '</p>';
-		text += '<p>Element avant le tri  : '+tab[2]+         '</p>';
-		text += '<p>Element apres le tri  : '+tab[0]+	  '</p>';
-		text += '<p>Nombre d\'itérations 	: '+ tab[5] + '</p>';
-		container.innerHTML += text;
- 		$('#triVal').trigger('autoresize');
+		var tab = <?php if (isset($res)) { echo json_encode($res, JSON_PRETTY_PRINT); } else { echo "null"; }?>;
+		if (tab != null)
+		{
+			var container = document.createElement('div');
+			container.className = "col s10 center";
+			container.id = "div1";
+			document.body.appendChild(container);
+			var text = '<h4>Type : ' + tab[4] +'</h4>';
+			text += '<p>Temps d\'éxecution  	: '   +	tab[1]	+	' us</p>';
+			text += '<p>Nombre d\'élement   	: '  	+	tab[3]	+ '</p>';
+			text += '<p>Element avant le tri  : '		+	tab[2]	+ '</p>';
+			text += '<p>Element apres le tri  : '		+	tab[0]	+	'</p>';
+			text += '<p>Nombre d\'itérations 	: '		+ tab[5] 	+ '</p>';
+			container.innerHTML += text;
+			$('#triVal').trigger('autoresize');
+		}
 		</script>
 	</body>
 </html>
